@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>悟空体育 · 产品说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f7f9fc;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #101820 0%, #1e2a3a 100%);
+      color: #ebeef3;
+      padding: 4rem 1.5rem 3.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -20%;
+      width: 140%;
+      height: 180%;
+      background: radial-gradient(circle at 30% 40%, rgba(255,190,70,0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .sub {
+      font-size: 1.05rem;
+      color: #bcc6d4;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+    }
+
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.8rem 1.5rem 3.5rem;
+    }
+
+    /* 卡片 / 模块分隔 */
+    .card-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      border-left: 5px solid #e6a33e;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin: 1.2rem 0 0.3rem;
+      color: #2c3e50;
+    }
+
+    .card p {
+      margin-bottom: 0.8rem;
+      color: #2e3a4a;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #edf2f7;
+      color: #1e293b;
+      font-size: 0.8rem;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      margin-right: 0.4rem;
+      margin-bottom: 0.4rem;
+      font-weight: 400;
+    }
+
+    .highlight-link {
+      color: #b7711e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(183,113,30,0.25);
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .highlight-link:hover {
+      color: #8f5c18;
+      border-bottom-color: #8f5c18;
+    }
+
+    .emphasis {
+      background: #fef7ed;
+      padding: 1rem 1.4rem;
+      border-radius: 18px;
+      border-left: 4px solid #e6a33e;
+      margin: 1.4rem 0 0.6rem;
+    }
+
+    .faq-item {
+      margin-top: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5e6f84;
+    }
+
+    .footer-note a {
+      color: #b7711e;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .sub { font-size: 0.95rem; }
+      .card { padding: 1.5rem 1.2rem; }
+      .card h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <h1>悟空体育 · 简明产品指南</h1>
+    <p class="sub">围绕运动爱好者的日常使用场景，提供功能概览、使用建议与访问说明，帮助你快速了解平台特点。</p>
+  </header>
+
+  <div class="content">
+    <div class="card-group">
+
+      <!-- 摘要卡片 -->
+      <div class="card">
+        <h2>平台概览</h2>
+        <p><strong>悟空体育</strong> 是一个面向体育资讯、赛事动态与运动社区的产品。它整合了多类运动项目的信息流，并提供简洁的浏览体验。无论你关注热门联赛、健身技巧还是运动装备讨论，都可以在平台上找到对应的内容板块。</p>
+        <p>整体结构偏向实用导向，页面层级清晰，适合日常快速获取体育相关内容。</p>
+        <div style="margin-top: 0.8rem;">
+          <span class="tag">赛事资讯</span>
+          <span class="tag">运动社区</span>
+          <span class="tag">内容聚合</span>
+          <span class="tag">轻量浏览</span>
+        </div>
+      </div>
+
+      <!-- 亮点 + 使用建议 (融合) -->
+      <div class="card">
+        <h2>功能亮点与使用建议</h2>
+        <p>从实际体验来看，以下几点值得留意：</p>
+
+        <h3>信息聚合 · 按需查看</h3>
+        <p>平台将不同运动门类的内容集中展示，你可以根据兴趣快速切换。建议先浏览首页的导航分类，定位自己关注的领域，再逐步深入。</p>
+
+        <h3>社区互动氛围</h3>
+        <p>部分板块开放评论与讨论，适合交流观点。初次使用时，可先观察热门帖文的讨论风格，再参与其中，能更快融入。</p>
+
+        <h3>移动端适配</h3>
+        <p>页面针对手机浏览做了响应式处理，在移动设备上阅读体验良好。如果你习惯用碎片时间查看体育动态，可以直接在浏览器中访问。</p>
+
+        <div class="emphasis">
+          <p style="margin-bottom: 0;"><strong>一点提醒：</strong> 平台内容由用户及合作方共同贡献，建议对关键信息适当交叉验证，尤其是涉及赛事时间、规则变动等内容。</p>
+        </div>
+      </div>
+
+      <!-- 典型场景 -->
+      <div class="card">
+        <h2>典型使用场景</h2>
+        <p>根据当前产品形态，以下场景比较自然：</p>
+        <ul style="padding-left: 1.4rem; color: #2e3a4a; list-style: disc; margin-top: 0.4rem;">
+          <li>早晨快速浏览昨夜比赛结果与集锦。</li>
+          <li>关注某个运动项目的赛季更新与深度分析。</li>
+          <li>查看社区中关于训练方法或装备的讨论帖。</li>
+          <li>在赛事密集期，通过平台获取多场比赛动态。</li>
+        </ul>
+        <p style="margin-top: 1rem;">这些场景都不需要额外注册或下载，直接通过浏览器打开 <a href="https://cns-wukongsports.com" class="highlight-link">悟空体育</a> 即可开始浏览。适合对信息效率有要求的日常体育爱好者。</p>
+      </div>
+
+      <!-- FAQ 摘要 + 可信访问说明 -->
+      <div class="card">
+        <h2>常见疑问 · 简要说明</h2>
+
+        <div class="faq-item">
+          <strong>平台是否需要登录？</strong>
+          <p>浏览大部分内容不需要登录。部分社区互动功能可能会引导你注册账户，实际以页面提示为准。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>内容更新频率如何？</strong>
+          <p>热门赛事期间更新较快，常规时段保持日常内容推送。具体时效可参考各板块的发布时间标注。</p>
+        </div>
+
+        <div class="faq-item">
+          <strong>访问时需要注意什么？</strong>
+          <p>建议使用主流浏览器并保持网络通畅。平台没有自动播放广告或弹窗打扰，浏览体验相对清爽。对于外部链接或用户发布的信息，保持基本的判断即可。</p>
+        </div>
+
+        <div style="margin-top: 1.6rem; font-size: 0.95rem; background: #f3f6fa; padding: 1rem 1.2rem; border-radius: 18px;">
+          <p style="margin-bottom: 0;">如果你希望进一步了解平台的全貌，可以直接访问 <a href="https://cns-wukongsports.com" class="highlight-link">悟空体育</a>，从首页的导航和推荐内容开始探索。整个过程无需额外配置，所见即所得。</p>
+        </div>
+      </div>
+
+    </div><!-- /card-group -->
+
+    <div class="footer-note">
+      <span>产品说明 · 基于公开体验整理</span><br>
+      <span style="font-size: 0.85rem; color: #7b8a9e;">内容仅供参考，平台功能以实际页面为准</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
