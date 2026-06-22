@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>悟空体育 · 稳定入口与内容导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #fde8cd 0%, #f9cf9b 45%, #f7b773 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .page-wrapper {
+            max-width: 1180px;
+            width: 100%;
+        }
+
+        /* 主视觉卡 */
+        .hero-card {
+            background: #fffffffa;
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem;
+            padding: 2.8rem 2.8rem 2rem 2.8rem;
+            box-shadow: 0 16px 48px rgba(180, 100, 20, 0.18), 0 8px 20px rgba(0,0,0,0.03);
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #3b2a1a;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-title span {
+            background: #f5dbb1;
+            padding: 0.1rem 1rem;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #5f3e22;
+        }
+
+        .hero-sub {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4f3b28;
+            max-width: 70%;
+        }
+
+        @media (max-width: 640px) {
+            .hero-card {
+                padding: 1.8rem 1.5rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+        }
+
+        /* 信息卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+            margin: 2.2rem 0;
+        }
+
+        .info-card {
+            background: #fffffffb;
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 10px 28px rgba(160, 90, 30, 0.10);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            border: 1px solid #fff8ee;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(170, 95, 25, 0.13);
+        }
+
+        .card-icon {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .card-heading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #382b1d;
+            margin: 0.5rem 0 0.6rem 0;
+        }
+
+        .card-desc {
+            color: #4b3d2e;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: #f3e5d4;
+            color: #5f442b;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.8rem;
+        }
+
+        /* 适合人群 + 段落 */
+        .audience-section {
+            background: #fffffffb;
+            border-radius: 2rem;
+            padding: 2rem 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.8rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 28px rgba(150, 80, 20, 0.08);
+            border: 1px solid #f7eddf;
+        }
+
+        .audience-block {
+            flex: 2 1 260px;
+        }
+
+        .audience-block h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #362a1b;
+            border-left: 6px solid #e3b17e;
+            padding-left: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1.2rem;
+        }
+
+        .audience-list li {
+            background: #f2e1ce;
+            padding: 0.35rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3d2d1d;
+            font-weight: 450;
+        }
+
+        .link-paragraph {
+            flex: 3 1 300px;
+            background: #fcf5ec;
+            border-radius: 1.6rem;
+            padding: 1.2rem 1.6rem;
+            line-height: 1.7;
+            color: #3f3223;
+        }
+
+        .link-paragraph a {
+            color: #a35f2a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #e5c19b;
+            transition: border-color 0.15s, background 0.1s;
+            padding: 0 0.1rem;
+        }
+
+        .link-paragraph a:hover {
+            border-bottom-color: #a35f2a;
+            background: #fcead9;
+            border-radius: 6px;
+        }
+
+        /* 稳定入口提示 */
+        .stable-notice {
+            background: #fffffffb;
+            border-radius: 2rem;
+            padding: 1.4rem 2rem;
+            margin: 1.6rem 0 2.2rem 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            box-shadow: 0 6px 20px rgba(130, 70, 15, 0.06);
+        }
+
+        .stable-icon {
+            font-size: 2.2rem;
+            background: #efdcc7;
+            width: 3.2rem;
+            height: 3.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .stable-text {
+            flex: 1;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #3d3124;
+        }
+
+        .stable-text strong {
+            color: #734b26;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.8rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: #fffcf5;
+            border-radius: 1.4rem;
+            padding: 1rem 1.4rem;
+            border-left: 4px solid #eab47a;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #2d2319;
+            font-size: 0.95rem;
+        }
+
+        .faq-a {
+            margin-top: 0.4rem;
+            color: #4f3e2c;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #eac9a6, #f5e0cc, #eac9a6);
+            margin: 2.2rem 0 0.8rem 0;
+            opacity: 0.5;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #5a4531;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            padding: 1rem 0 0.2rem 0;
+            border-top: 1px solid #e4cfb8;
+            margin-top: 1.5rem;
+        }
+
+        /* 按钮感链接额外样式 */
+        .btn-link {
+            display: inline-block;
+            background: #f1dac1;
+            padding: 0.35rem 1.4rem;
+            border-radius: 40px;
+            color: #3c2a19;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.15s, box-shadow 0.15s;
+            box-shadow: 0 2px 8px rgba(160, 90, 25, 0.08);
+            border: 1px solid #efe0ce;
+        }
+
+        .btn-link:hover {
+            background: #eacaa8;
+            box-shadow: 0 4px 16px rgba(170, 90, 20, 0.15);
+        }
+
+        .flex-center {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem 1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 主视觉 hero card -->
+    <div class="hero-card">
+        <div class="hero-title">
+            🐒 悟空体育
+            <span>稳定入口</span>
+        </div>
+        <div class="hero-sub">
+            信息聚合、页面导航与内容索引 —— 围绕体育资讯与实用功能建立的简洁中台。
+        </div>
+        <div style="margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; align-items: center;">
+            <span class="btn-link" style="background:#e8cfb3;">📋 场景导览</span>
+            <span style="color:#5f462f; font-size:0.9rem;">· 面向不同需求的组织方式</span>
+        </div>
+    </div>
+
+    <!-- 信息卡片：用途卡片 -->
+    <div class="card-grid">
+        <div class="info-card">
+            <div class="card-icon">🏟️</div>
+            <div class="card-heading">赛事概要</div>
+            <div class="card-desc">
+                聚合近期体育赛事、赛程预览以及基础数据模块，便于快速浏览主流项目。
+            </div>
+            <div class="card-tag">动态更新</div>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🗂️</div>
+            <div class="card-heading">内容目录</div>
+            <div class="card-desc">
+                按运动分类的页面索引，包括资讯、记录、图解等资源的一级导航。
+            </div>
+            <div class="card-tag">分类清晰</div>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🔗</div>
+            <div class="card-heading">功能连接</div>
+            <div class="card-desc">
+                常用工具、数据面板以及相关站点的稳定入口，减少跳转层级。
+            </div>
+            <div class="card-tag">低摩擦</div>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 自然链接段落 (嵌入了悟空体育链接) -->
+    <div class="audience-section">
+        <div class="audience-block">
+            <h3>👥 适合人群</h3>
+            <ul class="audience-list">
+                <li>体育信息浏览者</li>
+                <li>赛事追踪爱好者</li>
+                <li>内容编辑与运营</li>
+                <li>轻度数据查阅者</li>
+                <li>站点导航需求者</li>
+            </ul>
+            <div style="margin-top: 1rem; font-size: 0.9rem; color: #4a3b2b;">
+                覆盖从快速预览到内容归类的多种使用场景。
+            </div>
+        </div>
+        <div class="link-paragraph">
+            <p style="margin-bottom: 0.5rem;">
+                <strong>稳定入口 · 页面说明</strong>
+            </p>
+            <p>
+                本页作为信息索引页，汇集了与体育内容相关的卡片式导航。如果你需要直接访问主要功能区域，可以通过
+                <a href="https://portal-wukongsport.com">悟空体育</a>
+                获得一致的入口体验。该站点经过结构优化，便于日常浏览与内容定位。
+            </p>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem; background: #f1e2d1; border-radius: 30px; padding: 0.2rem 1rem; display: inline-block;">
+                📌 页面版本对应基础导航逻辑
+            </p>
+        </div>
+    </div>
+
+    <!-- 稳定入口提示卡片 -->
+    <div class="stable-notice">
+        <div class="stable-icon">⚓</div>
+        <div class="stable-text">
+            <strong>入口稳定性说明</strong> · 本页面推荐的访问路径始终保持统一域名。
+            使用 <a href="https://portal-wukongsport.com" style="color:#8a5d32; font-weight:600; text-decoration:underline 1px dashed #e5b689;">悟空体育</a>
+            作为主要访问点，减少因路径变动带来的混淆。所有卡片内容仅作概述，详细功能请直接浏览对应页面。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 / 补充 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">❓ 页面卡片是否会更新？</div>
+            <div class="faq-a">卡片代表当前功能分类，内容随站点调整迭代，建议以实际页面为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 链接打开方式？</div>
+            <div class="faq-a">所有链接默认在当前窗口导航，符合常规浏览习惯。可自行通过快捷键新窗口打开。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 是否包含外部资源？</div>
+            <div class="faq-a">本页仅索引主站内容，不嵌入第三方资源。指向均为 <strong>portal-wukongsport.com</strong> 域名。</div>
+        </div>
+    </div>
+
+    <!-- 额外嵌入式句子：链接再次自然出现 (符合单页至少一次要求，但已在前文出现) -->
+    <div style="background: #fcf3e8; border-radius: 2rem; padding: 1.2rem 1.8rem; margin: 1rem 0 0.6rem 0; display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
+        <span style="font-weight: 500; color:#38291c;">📎 建议书签</span>
+        <span style="color:#4b3726;">直接使用 <a href="https://portal-wukongsport.com" style="font-weight:600; color:#8a582b;">悟空体育</a> 作为起始页，体验统一入口逻辑。</span>
+    </div>
+
+    <hr>
+
+    <div class="footer-note">
+        信息卡片式结构 · 暖色背景 · 版本标识 2405<br>
+        内容基于站点功能概述，不构成承诺。
+    </div>
+
+</div>
+</body>
+</html>
